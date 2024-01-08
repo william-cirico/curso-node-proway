@@ -11,6 +11,5 @@
 ## Atividade
 Utilizando o express em conjunto com o pug faça um site com as seguintes rotas:
 - **/** -> Página inicial que lista todos os clientes cadastrados no site.
-- **/clientes/1** -> Página que mostra detalhes de um cliente.
+- **/clientes/:id** -> Página que mostra detalhes de um cliente.
 - **/clientes/cadastro** -> Página que permite o cadastro de um novo cliente.
-
