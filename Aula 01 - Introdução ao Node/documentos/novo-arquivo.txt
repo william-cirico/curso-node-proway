@@ -1,0 +1,1 @@
+Esse é um texto que será inserido no arquivo quando ele for criado.
