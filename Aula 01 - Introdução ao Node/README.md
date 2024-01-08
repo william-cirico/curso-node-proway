@@ -2,11 +2,11 @@
 ## Conteúdos abordados:
 - [ ] Node x JavaScript
 - [ ] Módulos built-in
-      - os
-      - process
-      - child_process
-      - path
-      - fs
+  - os
+  - process
+  - child_process
+  - path
+  - fs
 - [ ] Trabalhando com módulos (CommonJS)
 - [ ] Instalação de pacotes externos com NPM
 - [ ] Leitura e escrita de arquivos
