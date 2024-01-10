@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import bcrypt from "bcrypt";
+import morgan from "morgan";
 
 // Instância do express
 const app = express();
@@ -12,6 +13,9 @@ app.use(cors({
 
 // Adicionando o middleware necessário para ler os dados do body
 app.use(express.json());
+
+// Adicionando o middleware para logging das requisições
+app.use(morgan("dev"));
 
 type Usuario = {
     id: number;
