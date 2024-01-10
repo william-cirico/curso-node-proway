@@ -11,6 +11,31 @@
 - [ ] CORS
 - [ ] Consumo de APIS no lado do Cliente (GET)
 
+## Como adicionar o TypeScript no projeto
+1. Instale o typeScript, ts-node, nodemon e as bibliotecas de tipagem como dependências de desenvolvimento:
+```
+npm i -D typescript, ts-node @types/express @types/node nodemon
+```
+
+2. Crie o arquivo de configuração do nodemon **nodemon.json**:
+```
+{
+    "watch": ["src"],
+    "ext": "ts",
+    "exec": "ts-node ./src/server.ts"
+}
+```
+
+3. Adicionar o comando para rodar a aplicação em desenvolvimento no arquivo **package.json**:
+```
+scripts: {
+  ...outros scripts,
+  "dev": "npx nodemon"
+}
+```
+
+
+
 ## Atividade
 Incremente a API de tarefas implementada em sala para armazenar as tarefas de cada usuário. Os endpoints que devem estar presentes na API são:
 - **GET /v1/todos** -> Lista todas as tarefas cadastradas.
