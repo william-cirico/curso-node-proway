@@ -100,7 +100,7 @@ app.get("/viagem/:id", (req, res) => {
 
 // Rotas para cadastro de dados
 
-// Rota utilizada para abrir o formulário de cadastro
+// Rota utilizada para abrir o formulário de cadastro (GET)
 app.get("/cadastro/viagem", (req, res) => {
     const caminhoPagina = path.join(__dirname, "paginas", "cadastro-viagem.html");
 
