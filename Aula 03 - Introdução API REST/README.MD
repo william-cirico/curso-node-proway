@@ -43,7 +43,7 @@ Incremente a API de tarefas implementada em sala para armazenar as tarefas de ca
 - **GET /v1/usuarios/:id/tarefas** -> Mostra todas as tarefas de um usuário.
 - **POST /v1/tarefas** -> Cria uma tarefa para um usuário.
 - **PUT /v1/tarefas/:id** -> Atualiza uma tarefa.
-- **DELETE /v1/tarefas/:id** -> Remover uma tarefa.
+- **DELETE /v1/tarefas/:id** -> Remove uma tarefa.
 
 Cada tarefa deve ser composta de:
 - id
