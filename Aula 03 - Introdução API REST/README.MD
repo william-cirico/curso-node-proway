@@ -40,7 +40,7 @@ scripts: {
 Incremente a API de tarefas implementada em sala para armazenar as tarefas de cada usuário. Os endpoints que devem estar presentes na API são:
 - **GET /v1/tarefas** -> Lista todas as tarefas cadastradas.
 - **GET /v1/tarefas/:id** -> Mostra os detalhes de uma tarefa.
-- **GET /v1/tarefas/:id/todos** -> Mostra todas as tarefas de um usuário.
+- **GET /v1/usuarios/:id/tarefas** -> Mostra todas as tarefas de um usuário.
 - **POST /v1/tarefas** -> Cria uma tarefa para um usuário.
 - **PUT /v1/tarefas/:id** -> Atualiza uma tarefa.
 - **DELETE /v1/tarefas/:id** -> Remover uma tarefa.
