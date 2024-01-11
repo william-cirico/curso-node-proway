@@ -14,7 +14,7 @@
 ## Como adicionar o TypeScript no projeto
 1. Instale o typeScript, ts-node, nodemon e as bibliotecas de tipagem como dependências de desenvolvimento:
 ```
-npm i -D typescript, ts-node @types/express @types/node nodemon
+npm i -D typescript ts-node @types/express @types/node nodemon
 ```
 
 2. Crie o arquivo de configuração do nodemon **nodemon.json**:
