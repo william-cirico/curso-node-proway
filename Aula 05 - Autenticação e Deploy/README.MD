@@ -1,34 +1,49 @@
-# Aula 04 - Conectando ao Banco de Dados
+# Aula 05 - Autenticação e Deploy
 ## Conteúdos abordados:
-- [ ] Conexão com o banco de dados utilizando ORM (TypeORM)
-- [ ] Estruturando a aplicação com o padrão MVC
+- [ ] Autenticação com token JWT
+- [ ] Preparação e deploy da API
 
-## Padrão MVC
-O padrão MVC, abreviação de Model-View-Controller, é uma abordagem arquitetônica amplamente utilizada no desenvolvimento de software para implementar interfaces de usuário. Ele divide a aplicação em três componentes interconectados, cada um responsável por aspectos distintos da aplicação. Esta separação ajuda a gerenciar a complexidade e facilita a manutenção e escalabilidade do software.
+## Autenticação com token JWT
+<img src="https://docs.intersystems.com/irislatest/csp/docbook/images/gauthn_jwt_overview_flow.png" />
 
-Modelo (Model): Representa a lógica de negócios e os dados da aplicação. O modelo é responsável por acessar o armazenamento de dados, como bancos de dados, e definir as regras para como os dados podem ser alterados e manipulados. Ele não tem conhecimento da interface do usuário, permitindo que os dados possam ser reutilizados em diferentes interfaces.
+O JSON Web Token (JWT) é um padrão aberto (RFC 7519) que define uma maneira compacta e independente de transmitir informações de forma segura entre partes como um objeto JSON. Esta informação pode ser verificada e confiável porque é assinada digitalmente. Os JWTs podem ser assinados usando um segredo (com o algoritmo HMAC) ou um par de chaves pública/privada usando RSA ou ECDSA.
 
-Visão (View): É a interface com o usuário. A visão exibe os dados do modelo para o usuário e também envia as interações do usuário (como cliques de botão, entrada de dados) para o controlador. Normalmente, a visão é composta de elementos de interface do usuário, como botões, caixas de texto, menus, etc. É importante notar que a visão é passiva, ou seja, ela não realiza qualquer processamento de dados, apenas exibe os resultados recebidos do modelo.
+###Estrutura de um JWT###
+Um JWT é composto por três partes:
 
-Controlador (Controller): Atua como intermediário entre o modelo e a visão. Recebe as entradas do usuário através da visão, processa-as (possivelmente alterando o estado do modelo) e, em seguida, atualiza a visão para refletir as mudanças no modelo. O controlador é a peça central que conecta o modelo e a visão, controlando o fluxo de dados entre eles e as regras de negócio.
+**Header (Cabeçalho)**: O cabeçalho tipicamente consiste em duas partes: o tipo do token, que é JWT, e o algoritmo de assinatura sendo usado, como HMAC SHA256 ou RSA.
 
-O padrão MVC promove a separação de responsabilidades, o que facilita o teste e a manutenção do código. Além disso, ao separar a interface do usuário da lógica de negócio, torna-se mais fácil modificar uma parte da aplicação sem afetar as outras. Por exemplo, a interface do usuário pode ser redesenhada sem alterar a lógica subjacente de manipulação de dados.
+**Payload (Carga Útil)**: O payload contém as reivindicações. As reivindicações são declarações sobre uma entidade (geralmente, o usuário) e dados adicionais. Existem três tipos de reivindicações: registradas, públicas e privadas.
 
-O padrão MVC é amplamente utilizado em frameworks de desenvolvimento web, como Ruby on Rails, Django (Python) e ASP.NET MVC, entre outros. Esses frameworks fornecem uma estrutura que facilita a implementação do MVC, permitindo aos desenvolvedores se concentrarem mais na lógica específica da aplicação e menos na arquitetura subjacente.
+**Signature (Assinatura)**: Para criar a assinatura, você deve pegar o header codificado, o payload codificado, um segredo, o algoritmo especificado no header, e assinar isso.
 
-## Atividade
-Incremente a API de tarefas implementada em sala para armazenar as tarefas de cada usuário no banco de dados. Os endpoints que devem estar presentes na API são:
-- **GET /v1/todos** -> Lista todas as tarefas cadastradas.
-- **GET /v1/todos/:id** -> Mostra os detalhes de uma tarefa.
-- **GET /v1/usuarios/:id/todos** -> Mostra todas as tarefas de um usuário.
-- **POST /v1/todos** -> Cria uma tarefa para um usuário.
-- **PUT /v1/todos/:id** -> Atualiza uma tarefa.
-- **DELETE /v1/todos/:id** -> Remover uma tarefa.
+###Como Funciona o JWT###
+**Autenticação**: Após o login, o JWT é retornado ao usuário. Em cada solicitação subsequente, o token é enviado de volta ao servidor para validar o usuário e permitir acesso a recursos protegidos.
 
-Cada tarefa deve ser composta de:
-- id
-- nome
-- descrição
-- data de conclusão
-- data prevista de conclusão
-- id do usuário
+**Intercâmbio de Informações**: Os JWTs são uma boa maneira de transmitir informações de forma segura entre as partes. Por exemplo, em um sistema cliente-servidor, eles podem ser usados para autenticar a comunicação entre o cliente e o servidor.
+
+Site para testar os tokens: https://jwt.io/.
+
+## Deploy
+O deploy, ou implantação, é um termo amplamente utilizado no contexto do desenvolvimento de software para descrever o processo de disponibilizar uma aplicação ou atualização de software para uso. Este processo é um aspecto fundamental do ciclo de vida do desenvolvimento de software e envolve várias etapas críticas para garantir que o software funcione corretamente no ambiente de produção, que é onde os usuários finais podem acessá-lo.
+
+### Passos para realizar o Deploy na Render
+1. Adicionar o script de build e start no **package.json**:
+```
+"scripts": {
+    "dev": "npx nodemon",
+    "build": "npx tsc",
+    "start": "node dist/server.js"
+}
+```
+
+2. Publique o seu repositório no GitHub (a branch utilizada para o deploy será a main)
+
+3. Acesse o site do render e crie uma conta: https://render.com/
+
+4. Crie um serviço de postgres
+
+5. Crie um novo webservice no render, informe as configurações conforme descritas abaixo:
+- **Build Command**: npm ci && npm run build
+- **Start Command**: npm start
+- **Configure as variáveis de ambientes necessárias**
