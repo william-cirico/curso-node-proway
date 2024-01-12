@@ -16,6 +16,9 @@ O padrão MVC promove a separação de responsabilidades, o que facilita o teste
 
 O padrão MVC é amplamente utilizado em frameworks de desenvolvimento web, como Ruby on Rails, Django (Python) e ASP.NET MVC, entre outros. Esses frameworks fornecem uma estrutura que facilita a implementação do MVC, permitindo aos desenvolvedores se concentrarem mais na lógica específica da aplicação e menos na arquitetura subjacente.
 
+## Conectando ao banco de dados
+Para realizar a conexão com o banco de dados iremos utilizar o ORM TypeORM: https://typeorm.io/. Para isso é necessário seguir o processo de instalação documentado em: https://typeorm.io/#installation.
+
 ## Atividade
 Incremente a API de tarefas implementada em sala para armazenar as tarefas de cada usuário no banco de dados. Os endpoints que devem estar presentes na API são:
 - **GET /v1/todos** -> Lista todas as tarefas cadastradas.
