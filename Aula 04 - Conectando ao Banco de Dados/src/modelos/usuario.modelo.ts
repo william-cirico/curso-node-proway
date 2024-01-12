@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Tarefa } from "./tarefa.modelo";
 
 @Entity()
 export class Usuario {
@@ -25,6 +26,9 @@ export class Usuario {
         length: 20
     })
     telefone: string;
+
+    @OneToMany(() => Tarefa, (tarefa) => tarefa.usuario)
+    tarefas: Tarefa[];
 
     constructor(nome: string, email: string, senha: string, telefone: string, id?: number) {
         this.nome = nome;

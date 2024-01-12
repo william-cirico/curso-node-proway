@@ -1,5 +1,6 @@
 import { DataSource } from "typeorm";
 import { Usuario } from "../modelos/usuario.modelo";
+import { Tarefa } from "../modelos/tarefa.modelo";
 
 // Configuração da conexão com o banco de dados
 export const AppDataSource = new DataSource({
@@ -11,5 +12,5 @@ export const AppDataSource = new DataSource({
     database: "tarefas_db",
     synchronize: true,
     logging: false,
-    entities: [Usuario]
+    entities: [Usuario, Tarefa]
 });
