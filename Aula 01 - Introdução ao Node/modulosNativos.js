@@ -44,6 +44,7 @@ console.log("Versão do Node: ", process.version);
 Para definir uma variável de ambiente para o processo:
 CMD: SET MINHA_VARIAVEL=valor && node index.js
 POWERSHELL: $env:MINHA_VARIAVEL="valor"; node index.js
+BASH: NOME_VARIAVEL=valor node index.js
 */
 console.log("Váriáveis de ambiente: ", process.env.TESTE);
 

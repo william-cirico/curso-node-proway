@@ -1,1 +1,3 @@
 Esse texto já existia no arquivo.
+Essa é uma nova linha criada através do código.
+Essa é uma nova linha criada através do código.

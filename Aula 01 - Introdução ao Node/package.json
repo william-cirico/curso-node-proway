@@ -11,5 +11,8 @@
     "url": "github.com/william-cirico/curso-node-proway"
   },
   "author": "William Círico",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "node-global-key-listener": "^0.3.0"
+  }
 }

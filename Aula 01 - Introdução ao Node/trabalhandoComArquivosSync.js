@@ -21,4 +21,4 @@ fs.appendFileSync(caminhoArquivo, textoAdicional);
 
 // Lendo informações de um arquivo
 const dadosArquivo = fs.readFileSync(caminhoArquivo, "utf8");
-console.log(dadosArquivo);
+console.log("Conteúdo do arquivo:", dadosArquivo);
