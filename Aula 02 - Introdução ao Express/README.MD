@@ -9,9 +9,6 @@
 - [ ] Template Engine (Pug)
 
 ## Atividades
-1)
-# CLI de Gerenciamento de Tarefas
-
 ### 1) Desenvolver uma aplicação CLI em Node.js que permita ao usuário gerenciar suas tarefas diárias. A aplicação deverá permitir que o usuário adicione, remova e visualize tarefas através de comandos no terminal.
 
 ### Requisitos:
@@ -41,13 +38,27 @@
 A CLI deve oferecer os seguintes comandos:
 
 #### 1. Adicionar tarefa:
-O comando permite que o usuário adicione uma tarefa. Deve incluir um título e uma descrição.
 
 ```bash
 node tasks.js add --title "Comprar leite" --description "Ir ao mercado comprar leite"
+```
 
+#### 2. Listar tarefas:
+```bash
+node tasks.js list
+```
 
-2) Utilizando o express em conjunto com o pug faça um site com as seguintes rotas:
+#### 3. Remover tarefas:
+```bash
+node tasks.js remove --id 2
+```
+
+#### 4. Marcar tarefa como concluída:
+```bash
+node tasks.js complete --id 1
+```
+
+### 2) Utilizando o express em conjunto com o ejs faça um site com as seguintes rotas:
 - **/** -> Página inicial que lista todos os clientes cadastrados no site.
 - **/clientes/:id** -> Página que mostra detalhes de um cliente.
 - **/clientes/cadastro** -> Página que permite o cadastro de um novo cliente.
