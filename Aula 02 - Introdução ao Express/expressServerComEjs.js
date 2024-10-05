@@ -11,13 +11,16 @@ app.use(express.urlencoded({ extended: true }));
 // Configurando os arquivos estáticos (imagens, js, css)
 app.use("/static", express.static("public")); // /static é o prefixo para acessar esses arquivos
 
-// Definindo o template engine
-app.set("view engine", "pug");
+// Definindo o template engine como EJS
+app.set("view engine", "ejs");
+
+// Definindo o diretório onde as views estão localizadas
+app.set("views", path.join(__dirname, "paginas-ejs"));
 
 // Definindo as rotas da aplicação
 app.get("/", (req, res) => {
     // Definindo o caminho até a página HTML
-    const caminhoPagina = path.join(__dirname, "paginas", "index.html");
+    const caminhoPagina = path.join(__dirname, "paginas-ejs", "index.html");
 
     // Retornando o arquivo HTML
     res.sendFile(caminhoPagina);
@@ -25,19 +28,12 @@ app.get("/", (req, res) => {
 
 // Rota com arquivo estático
 app.get("/fotos", (req, res) => {
-    const caminhoPagina = path.join(__dirname, "paginas", "fotos.html");
+    const caminhoPagina = path.join(__dirname, "paginas-ejs", "fotos.html");
 
     res.sendFile(caminhoPagina);
 });
 
-/* 
-Rota com conteúdo dinâmico (pug): https://expressjs.com/en/guide/using-template-engines.html
-
-Para utilizar conteúdo dinâmico nas páginas é necessário utilizar um template engine.
-
-Vamos utilizar o pug, e, para isso é necessário instalá-lo com o seguinte comando:
-- npm i pug
-*/
+// Rota com conteúdo dinâmico (EJS)
 app.get("/contato", (req, res) => {
     const dadosContato = {
         nome: "William Círico",
@@ -45,10 +41,8 @@ app.get("/contato", (req, res) => {
         telefone: "(47) 9 9999-9999"
     };
 
-    const caminhoPagina = path.join(__dirname, "paginas", "contato");
-
     // Renderizando a página com os dados de contato
-    res.render(caminhoPagina, dadosContato);
+    res.render("contato", { dadosContato });
 });
 
 // Banco de dados fictício
@@ -66,23 +60,8 @@ const viagens = [
 
 // Rota dinâmica
 app.get("/viagem/:id", (req, res) => {
-    const id = req.params.id; // Obtendo o ID do parâmetro da URL e convertendo para número.
+    const id = req.params.id;
 
-    /*
-    O que é a função find?
-      A função find é um método de arrays em JavaScript. Ela é utilizada para encontrar o primeiro 
-      elemento de um array que satisfaz uma condição especificada em uma função de callback. 
-      Assim que um elemento que atende à condição é encontrado, find retorna esse elemento e não 
-      verifica os elementos restantes.
-    
-    Como a função funciona?
-      1. Iteração: find passa por cada elemento do array.
-      2. Teste de condição: para cada elemento, find executa uma função que você define (callback).
-      Esta função deve retornar true ou false.
-      3. Encontrando o elemento:  Se a função de callback retorna true para um elemento, find 
-      retorna esse elemento imediatamente e não continua a percorrer o restante do array.
-      4. Resultado: Se nenhum elemento satisfaz a condição, find retorna undefined.
-    */
     const viagem = viagens.find(viagem => viagem.id == id);
 
     if (!viagem) {
@@ -93,16 +72,14 @@ app.get("/viagem/:id", (req, res) => {
     // Formatando a data para exibição
     viagem.data = dayjs(viagem.data).format("DD/MM/YYYY");
 
-    const caminhoPagina = path.join(__dirname, "paginas", "viagem");
-
-    res.render(caminhoPagina, viagem);
+    res.render("viagem", { viagem });
 });
 
 // Rotas para cadastro de dados
 
 // Rota utilizada para abrir o formulário de cadastro (GET)
 app.get("/cadastro/viagem", (req, res) => {
-    const caminhoPagina = path.join(__dirname, "paginas", "cadastro-viagem.html");
+    const caminhoPagina = path.join(__dirname, "paginas-ejs", "cadastro-viagem.html");
 
     res.sendFile(caminhoPagina);
 });

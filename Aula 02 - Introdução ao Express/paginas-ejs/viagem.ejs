@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Viagem para <%= viagem.destino %></title>
+</head>
+<body>
+    <h1>Viagem para <%= viagem.destino %></h1>
+    <p>Data: <%= viagem.data %></p>
+
+    <% viagem.fotos.forEach(foto => { %>
+        <img src="<%= foto %>" alt="Foto da viagem" />
+    <% }) %>
+</body>
+</html>
