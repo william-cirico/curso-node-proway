@@ -62,3 +62,4 @@ node tasks.js complete --id 1
 - **/** -> Página inicial que lista todos os clientes cadastrados no site.
 - **/clientes/:id** -> Página que mostra detalhes de um cliente.
 - **/clientes/cadastro** -> Página que permite o cadastro de um novo cliente.
+- **/clients/cadastro/:id** -> Página que permite a edição de um novo cliente.
