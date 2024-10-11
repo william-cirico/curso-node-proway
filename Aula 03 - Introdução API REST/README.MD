@@ -5,6 +5,7 @@
   - [ ] GET
   - [ ] POST
   - [ ] PUT
+  - [ ] PATCH
   - [ ] DELETE
 - [ ] Construção de API REST simples
 - [ ] Logging de requisições com Morgan
@@ -42,7 +43,8 @@ Incremente a API de tarefas implementada em sala para armazenar as tarefas de ca
 - **GET /v1/tarefas/:id** -> Mostra os detalhes de uma tarefa.
 - **GET /v1/usuarios/:id/tarefas** -> Mostra todas as tarefas de um usuário.
 - **POST /v1/tarefas** -> Cria uma tarefa para um usuário.
-- **PUT /v1/tarefas/:id** -> Atualiza uma tarefa.
+- **PUT /v1/tarefas/:id** -> Atualiza todos os dados de uma tarefa.
+- **PATCH /v1/taregas/:id** -> Atualiza parcialmente um tarefa.
 - **DELETE /v1/tarefas/:id** -> Remove uma tarefa.
 
 Cada tarefa deve ser composta de:
