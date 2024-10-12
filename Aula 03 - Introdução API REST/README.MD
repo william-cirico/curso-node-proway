@@ -7,6 +7,7 @@
   - [ ] PUT
   - [ ] PATCH
   - [ ] DELETE
+- [ ] Configuração do Projeto com TypeScript, EsLint e Prettier
 - [ ] Construção de API REST simples
 - [ ] Logging de requisições com Morgan
 - [ ] CORS
@@ -35,8 +36,6 @@ scripts: {
 }
 ```
 
-
-
 ## Atividade
 Incremente a API de tarefas implementada em sala para armazenar as tarefas de cada usuário. Os endpoints que devem estar presentes na API são:
 - **GET /v1/tarefas** -> Lista todas as tarefas cadastradas.
@@ -44,7 +43,7 @@ Incremente a API de tarefas implementada em sala para armazenar as tarefas de ca
 - **GET /v1/usuarios/:id/tarefas** -> Mostra todas as tarefas de um usuário.
 - **POST /v1/tarefas** -> Cria uma tarefa para um usuário.
 - **PUT /v1/tarefas/:id** -> Atualiza todos os dados de uma tarefa.
-- **PATCH /v1/taregas/:id** -> Atualiza parcialmente um tarefa.
+- **PATCH /v1/tarefas/:id** -> Atualiza parcialmente um tarefa.
 - **DELETE /v1/tarefas/:id** -> Remove uma tarefa.
 
 Cada tarefa deve ser composta de:
